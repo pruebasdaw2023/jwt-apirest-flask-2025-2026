@@ -25,7 +25,7 @@ def validate_token(token, output=False):
         response = jsonify({"message":"Invalid Token"})
         response.status_code = 401
 
-        return response
+        return response   
     
     except exceptions.ExpiredSignatureError as e:
 
