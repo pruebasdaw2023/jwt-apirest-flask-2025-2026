@@ -2,12 +2,14 @@ from flask import Flask, jsonify
 from dotenv import load_dotenv
 from function_jwt import write_token
 from routes.auth import routes_auth
+from routes.users_github import users_github
 
 load_dotenv()
 
 app = Flask(__name__)
 
-app.register_blueprint(routes_auth)
+app.register_blueprint(routes_auth, url_prefix='/api')
+app.register_blueprint(users_github)
 
 @app.route('/', methods=['GET'])
 def index():

@@ -19,7 +19,7 @@ def validate_token(token, output=False):
             return decode(token, key=getenv('SECRET'), algorithms=['HS256'])
         
         decode(token, key=getenv('SECRET'), algorithms=['HS256'])
-
+        
     except exceptions.DecodeError as e:
 
         response = jsonify({"message":"Invalid Token"})
